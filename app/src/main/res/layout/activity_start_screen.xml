@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/first_screen"
+    tools:context=".StartScreen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/first_screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:context=".StartScreen"
+        tools:layout_editor_absoluteY="-68dp">
+
+        <EditText
+            android:id="@+id/editrun"
+            android:layout_width="64dp"
+            android:layout_height="48dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/command_delay"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textAlignment="center"
+            android:textColorHint="#757575"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <EditText
+            android:id="@+id/editcommand"
+            android:layout_width="64dp"
+            android:layout_height="48dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/run_delay"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textAlignment="center"
+            android:textColorHint="#757575"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            android:autofillHints="" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="320dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="84dp"
+            android:background="#EADDDD"
+            android:text="@string/activity_time"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="320dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="36dp"
+            android:background="#EADDDD"
+            android:text="@string/command_time"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editrun" />
+
+        <Button
+            android:id="@+id/push_ups"
+            android:layout_width="272dp"
+            android:layout_height="59dp"
+            android:layout_marginBottom="156dp"
+            android:onClick="startPushExercise"
+            android:text="@string/start_push_ups"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_cardio" />
+
+        <Button
+            android:id="@+id/button_cardio"
+            android:layout_width="276dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="128dp"
+            android:onClick="startCoach"
+            android:text="@string/start_exercise"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editcommand" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#FFFFFF"
+            android:text="@string/welcome_to_cardiocoach"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.099" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CardioCoach</string>
+    <string name="welcome_to_cardiocoach">Welcome to CardioCoach</string>
+    <string name="play">Play the Game</string>
+    <string name="todo">TODO</string>
+    <string name="start_exercise">Start Cardio Exercise</string>
+    <string name="start_push_ups">Start Push Ups</string>
+    <string name="command_delay">3</string>
+    <string name="run_delay">2</string>
+    <string name="activity_time">Activity Time (in Minutes)</string>
+    <string name="command_time">Command Time (in Seconds)</string>
+    <string name="push_ups_count">Push Ups Count</string>
+</resources>
