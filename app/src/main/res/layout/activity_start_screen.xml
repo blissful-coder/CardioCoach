@@ -15,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:context=".StartScreen"
-        tools:layout_editor_absoluteY="-68dp">
+        tools:layout_editor_absoluteY="40dp">
 
         <EditText
             android:id="@+id/editrun"
@@ -38,6 +38,7 @@
             android:id="@+id/editcommand"
             android:layout_width="64dp"
             android:layout_height="48dp"
+            android:autofillHints=""
             android:background="#FFFFFF"
             android:ems="10"
             android:hint="@string/run_delay"
@@ -48,8 +49,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
             android:id="@+id/textView3"
@@ -82,14 +82,14 @@
             android:id="@+id/push_ups"
             android:layout_width="272dp"
             android:layout_height="59dp"
-            android:layout_marginBottom="156dp"
             android:onClick="startPushExercise"
             android:text="@string/start_push_ups"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_cardio" />
+            app:layout_constraintTop_toBottomOf="@+id/button_cardio"
+            app:layout_constraintVertical_bias="0.282" />
 
         <Button
             android:id="@+id/button_cardio"

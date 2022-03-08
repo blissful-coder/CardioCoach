@@ -6,9 +6,11 @@ import android.graphics.Path
 import android.media.MediaPlayer
 import android.os.*
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
     private var defaultTime: Long?= 180000
@@ -23,16 +25,16 @@ class MainActivity : AppCompatActivity() {
     var pause = false
     var alreadyPlaying = false
     var offset = 80f
-    var centerX: Float = Resources.getSystem().getDisplayMetrics().widthPixels/2f - offset
-    var centerY: Float = Resources.getSystem().getDisplayMetrics().heightPixels/2f - offset
+    var centerX: Float = Resources.getSystem().getDisplayMetrics().widthPixels/2f - offset*1.25f
+    var centerY: Float = Resources.getSystem().getDisplayMetrics().heightPixels/2f - offset*1.5f
     var tlX = 1.5f*offset;
     var tlY = 3f*offset;
-    var trX = Resources.getSystem().getDisplayMetrics().widthPixels - offset*3f;
+    var trX = Resources.getSystem().getDisplayMetrics().widthPixels - offset*2.5f;
     var trY = 3f*offset;
-    var blX = offset;
-    var blY = Resources.getSystem().getDisplayMetrics().heightPixels - 5.5f*offset;
-    var brX = Resources.getSystem().getDisplayMetrics().widthPixels - offset*3f;
-    var brY = Resources.getSystem().getDisplayMetrics().heightPixels - 5.5f*offset;
+    var blX = 1.5f*offset;
+    var blY = Resources.getSystem().getDisplayMetrics().heightPixels - 6.5f*offset;
+    var brX = Resources.getSystem().getDisplayMetrics().widthPixels - offset*2.5f;
+    var brY = Resources.getSystem().getDisplayMetrics().heightPixels - 6.5f*offset;
     var coachSays = 0
     var mainHandler = Handler(Looper.getMainLooper())
     var commandDelay: Long = 2000
@@ -41,21 +43,21 @@ class MainActivity : AppCompatActivity() {
     private val myRunnable = object : Runnable {
         override fun run() {
             coachSays = (1..4).random()
-            var text = ""
+//            var text = ""
             if (coachSays % 4 == 0) {
-                text = "Top Left"
+//                text = "Top Left"
                 runTopLeftAndBack()
             }
             else if (coachSays % 4 == 1) {
-                text = "Top Right"
+//                text = "Top Right"
                 runTopRightAndBack()
             }
             else if (coachSays % 4 == 2) {
-                text = "Bottom Left"
+//                text = "Bottom Left"
                 runBottomLeftAndBack()
             }
             else {
-                text = "Bottom Right"
+//                text = "Bottom Right"
                 runBottomRightAndBack()
             }
 //            val duration = Toast.LENGTH_SHORT
@@ -119,33 +121,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun runBottomRightAndBack() {
-        mySoundbr = MediaPlayer.create(this, R.raw.br)
-        mySoundbr?.start()
-        val view1 = findViewById<View>(R.id.imageView1)
-        val path = Path().apply {
-            moveTo(centerX, centerY)
-            lineTo(brX,brY)
-            moveTo(brX,brY)
-            lineTo(centerX, centerY)
-        }
-        val animator = ObjectAnimator.ofFloat(view1, View.X, View.Y, path).apply {
-            duration = commandDelay
-            start()
-        }
-    }
-
     private fun runBottomLeftAndBack() {
         mySoundbl = MediaPlayer.create(this, R.raw.bl)
         mySoundbl?.start()
-        val view1 = findViewById<View>(R.id.imageView1)
+        val view1 = findViewById<View>(R.id.running_man)
+        Glide.with(this).load(R.drawable.left_running).into(view1 as ImageView)
         val path = Path().apply {
             moveTo(centerX, centerY)
             lineTo(blX,blY)
             moveTo(blX,blY)
             lineTo(centerX, centerY)
         }
-        val animator = ObjectAnimator.ofFloat(view1, View.X, View.Y, path).apply {
+        ObjectAnimator.ofFloat(view1, View.X, View.Y, path).apply {
             duration = commandDelay
             start()
         }
@@ -154,14 +141,32 @@ class MainActivity : AppCompatActivity() {
     private fun runTopLeftAndBack() {
         mySoundtl = MediaPlayer.create(this, R.raw.tl)
         mySoundtl?.start()
-        val view1 = findViewById<View>(R.id.imageView1)
+        val view1 = findViewById<View>(R.id.running_man)
+        Glide.with(this).load(R.drawable.left_running).into(view1 as ImageView)
         val path = Path().apply {
             moveTo(centerX, centerY)
             lineTo(tlX,tlY)
             moveTo(tlX,tlY)
             lineTo(centerX, centerY)
         }
-        val animator = ObjectAnimator.ofFloat(view1, View.X, View.Y, path).apply {
+        ObjectAnimator.ofFloat(view1, View.X, View.Y, path).apply {
+            duration = commandDelay
+            start()
+        }
+    }
+
+    private fun runBottomRightAndBack() {
+        mySoundbr = MediaPlayer.create(this, R.raw.br)
+        mySoundbr?.start()
+        val view1 = findViewById<View>(R.id.running_man)
+        Glide.with(this).load(R.drawable.right_running).into(view1 as ImageView)
+        val path = Path().apply {
+            moveTo(centerX, centerY)
+            lineTo(brX,brY)
+            moveTo(brX,brY)
+            lineTo(centerX, centerY)
+        }
+        ObjectAnimator.ofFloat(view1, View.X, View.Y, path).apply {
             duration = commandDelay
             start()
         }
@@ -170,14 +175,15 @@ class MainActivity : AppCompatActivity() {
     private fun runTopRightAndBack() {
         mySoundtr = MediaPlayer.create(this, R.raw.tr)
         mySoundtr?.start()
-        val view1 = findViewById<View>(R.id.imageView1)
+        val view1 = findViewById<View>(R.id.running_man)
+        Glide.with(this).load(R.drawable.right_running).into(view1 as ImageView)
         val path = Path().apply {
             moveTo(centerX, centerY)
             lineTo(trX,trY)
             moveTo(trX,trY)
             lineTo(centerX, centerY)
         }
-        val animator = ObjectAnimator.ofFloat(view1, View.X, View.Y, path).apply {
+        ObjectAnimator.ofFloat(view1, View.X, View.Y, path).apply {
             duration = commandDelay
             start()
         }
@@ -201,7 +207,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.cTimer).setText("Done")
         timerObject?.cancel()
         timerObject = null
-        mainHandler?.removeCallbacks(myRunnable)
+        mainHandler.removeCallbacks(myRunnable)
         val text = "Stopping the Exercise."
         val duration = Toast.LENGTH_SHORT
         val toast = Toast.makeText(applicationContext, text, duration)
@@ -213,7 +219,7 @@ class MainActivity : AppCompatActivity() {
         play = false
         timerObject?.cancel()
         timerObject = null
-        mainHandler?.removeCallbacks(myRunnable)
+        mainHandler.removeCallbacks(myRunnable)
         mySoundbl?.stop()
         mySoundbl?.release()
         mySoundbr?.stop()

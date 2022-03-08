@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
+    android:keepScreenOn="true"
     android:background="@drawable/ground_area"
     tools:context=".MainActivity">
 
@@ -23,18 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.036" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="35dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="268dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@android:drawable/alert_dark_frame"
-        android:contentDescription="@string/todo" />
 
     <ImageButton
         android:id="@+id/startEx"
@@ -90,5 +79,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/running_man"
+        android:layout_width="33dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="200dp"
+        android:src="@drawable/left_running"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cTimer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
